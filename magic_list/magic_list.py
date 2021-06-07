@@ -12,9 +12,6 @@ class MagicList(MutableSequence):
         self._store = []
         self.cls_type = cls_type
 
-    def __getattr__(self, item):
-        print("__getattr__", item)
-
     def __setattr__(self, key, value):
         if key in ['_store', 'cls_type']:
             return super(MagicList, self).__setattr__(key, value)
@@ -45,20 +42,3 @@ class MagicList(MutableSequence):
         if index == len(self._store):
             return self
         return self._store[index]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
